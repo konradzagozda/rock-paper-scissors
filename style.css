@@ -1,0 +1,45 @@
+body {
+  background-color: #ba3030;
+}
+
+h1 {
+  text-align: center;
+}
+
+.images {
+  text-align: center;
+  margin-top: 50px;
+}
+
+img {
+  margin: 20px;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
+.results div{
+  border: 1px solid black;
+  text-align: center;
+  width: 40%;
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+  margin: auto;
+  justify-content: center;
+}
+
+p {
+  font-size: 30px;
+}
+
+#current-message{
+  text-align: center;
+  display: block;
+  margin:auto;
+  width:100px;
+  height:100px;
+  line-height: 100px;
+}
