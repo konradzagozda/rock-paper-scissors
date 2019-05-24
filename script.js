@@ -67,7 +67,6 @@ function changePicture(e) {
   let computer = document.querySelector('#computer-pick img');
   let player = document.querySelector('#player-pick img');
   computer.setAttribute("src", dict[`${currentComputerPick}`]);
-  console.log(currentComputerPick, currentPlayerPick);
   player.setAttribute("src", dict[`${currentPlayerPick}`]);
 }
 
