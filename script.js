@@ -54,7 +54,7 @@ function playRound(){
 
 imgs.forEach(x => x.addEventListener('click', playRound));
 imgs.forEach(x => x.addEventListener('click', changePicture));
-window.addEventListener('click', checkForWinner);
+imgs.forEach(x => x.addEventListener('click', checkForWinner));
 
 
 
@@ -67,12 +67,12 @@ function changePicture(e) {
   let computer = document.querySelector('#computer-pick img');
   let player = document.querySelector('#player-pick img');
   computer.setAttribute("src", dict[`${currentComputerPick}`]);
+  console.log(currentComputerPick, currentPlayerPick);
   player.setAttribute("src", dict[`${currentPlayerPick}`]);
 }
 
 
 function checkForWinner(e) {
-  console.log(playerScore, computerScore);
   let announce = false;
   let tryAgain = document.createElement('button');
   if (+playerScore.textContent >= 5 || +computerScore.textContent >= 5) {
@@ -90,7 +90,8 @@ function checkForWinner(e) {
   if (announce) {
     let body = document.querySelector('body');
     imgs.forEach(x => x.removeEventListener('click', playRound));
-    window.removeEventListener('click', checkForWinner);
+    imgs.forEach(x => x.removeEventListener('click', changePicture));
+    imgs.forEach(x => x.removeEventListener('click', checkForWinner));
     body.appendChild(announce);
     announce.appendChild(tryAgain);
     tryAgain.addEventListener('click', reset);
@@ -102,6 +103,7 @@ function reset(){
   computerScore.textContent = 0;
   draws.textContent = 0;
   imgs.forEach(x => x.addEventListener('click', playRound));
-  window.addEventListener('click', checkForWinner);
+  imgs.forEach(x => x.addEventListener('click', changePicture));
+  imgs.forEach(x => x.addEventListener('click', checkForWinner));
   document.querySelector('.announce').outerHTML = '';
 }
